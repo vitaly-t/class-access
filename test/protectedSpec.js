@@ -8,7 +8,6 @@ var Parent = classes.Parent,
 describe('protected', function () {
 
     it('must override members', () => {
-        expect(new Parent().$protected.shared).toBe('hello');
         expect(new Child().$protected.shared).toBe('world');
     });
 
@@ -16,6 +15,14 @@ describe('protected', function () {
         expect(() => {
             Object.getOwnPropertyDescriptor(new Parent(), '$protected').get();
         }).toThrow(new TypeError('Invalid caller outside of the class!'));
+    });
+
+    it('must have no enumerable members in derived types', () => {
+        var found = [], child = new Child();
+        for (var a in child) {
+            found.push(a);
+        }
+        expect(found).toEqual([]);
     });
 
 });

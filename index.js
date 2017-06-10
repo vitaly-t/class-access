@@ -29,7 +29,7 @@
                 verifyCaller(this);
                 var name;
                 if (arguments.length) {
-                    name = key instanceof AccessSpecifier ? key.constructor.name : key;
+                    name = key instanceof AccessSpecifier ? key.constructor.name : (key && key.name || key);
                 } else {
                     name = this.constructor.name;
                 }

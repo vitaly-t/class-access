@@ -10,6 +10,10 @@ class Parent extends AccessSpecifier {
         this.$private(Parent).named = 'parent-named';
         this.$private(Parent.name).text = 'parent-text';
     }
+
+    setBottom(value) {
+        this.$private(this).bottom = value;
+    }
 }
 
 class Child extends Parent {
@@ -19,6 +23,7 @@ class Child extends Parent {
         this.$private().general = 'child-general';
         this.$private(Child).named = 'child-named';
         this.$private(Child.name).text = 'child-text';
+        this.$private(Child).bottom = 'bottom';
     }
 }
 
