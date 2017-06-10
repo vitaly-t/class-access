@@ -11,7 +11,7 @@ Access specifiers for ES6 classes.
 $ npm install class-access
 ```
 
-## Usage
+## Loading
 
 * **Node.js**
 
@@ -23,7 +23,12 @@ var AccessSpecifier = require('class-access');
 
 ```html
 <script src="./class-access"></script>
+
+<script>
+    // class AccessSpecifier is available here
+</script>
 ```
 
-See [usage examples](wiki).
- 
+## Usage
+
+See the [wiki pages](http://github.com/vitaly-t/class-access/wiki) for usage examples and full documentation.
