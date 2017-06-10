@@ -8,7 +8,7 @@ var AccessSpecifier = classes.AccessSpecifier,
 var baseObj = new AccessSpecifier();
 var classObj = new Parent();
 
-describe('protocol', function () {
+describe('class protocol', function () {
 
     it('must detect abstract instantiation', () => {
         expect(baseObj.isAbstract).toBe(true);
@@ -30,20 +30,21 @@ describe('protocol', function () {
 
     it('must not allow function-style calls', () => {
         expect(() => {
+            /*eslint new-cap: 0*/
             AccessSpecifier();
         }).toThrow(new TypeError('Class constructors cannot be invoked without \'new\'!'));
     });
 
     describe('members configuration', () => {
         var members = ['isAbstract', 'className', 'sealClass', '$protected', '$private'];
-        it('not to allow overrides', () => {
+        it('must not allow overrides', () => {
             members.forEach(m => {
                 expect(() => {
                     baseObj[m] = null;
                 }).toThrow();
             });
         });
-        it('not to allow deletion', () => {
+        it('must not allow deletion', () => {
             members.forEach(m => {
                 expect(() => {
                     delete baseObj[m];

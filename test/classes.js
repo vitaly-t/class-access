@@ -3,11 +3,23 @@
 var AccessSpecifier = require('../');
 
 class Parent extends AccessSpecifier {
-
+    constructor() {
+        super();
+        this.$protected.shared = 'hello';
+        this.$private().general = 'parent-general';
+        this.$private(Parent).named = 'parent-named';
+        this.$private(Parent.name).text = 'parent-text';
+    }
 }
 
 class Child extends Parent {
-
+    constructor() {
+        super();
+        this.$protected.shared = 'world';
+        this.$private().general = 'child-general';
+        this.$private(Child).named = 'child-named';
+        this.$private(Child.name).text = 'child-text';
+    }
 }
 
 class SealedParent extends AccessSpecifier {
@@ -17,7 +29,7 @@ class SealedParent extends AccessSpecifier {
     }
 }
 
-class SealedChild extends SealedParent {
+class ChildOfSealed extends SealedParent {
 
 }
 
@@ -26,5 +38,5 @@ module.exports = {
     Parent,
     Child,
     SealedParent,
-    SealedChild
+    ChildOfSealed
 };

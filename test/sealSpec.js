@@ -3,7 +3,7 @@
 var classes = require('./classes');
 
 var Parent = classes.Parent,
-    SealedChild = classes.SealedChild;
+    ChildOfSealed = classes.ChildOfSealed;
 
 describe('seal', function () {
 
@@ -13,7 +13,7 @@ describe('seal', function () {
 
     it('must throw when extending a sealed class', () => {
         expect(() => {
-            new SealedChild();
+            new ChildOfSealed();
         }).toThrow(new TypeError('Class \'SealedParent\' is non-extendable!'));
     });
 
