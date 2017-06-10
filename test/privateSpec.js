@@ -1,6 +1,6 @@
 'use strict';
 
-var AccessSpecifier = require('../');
+var classes = require('./classes');
 
 describe('private', function () {
 

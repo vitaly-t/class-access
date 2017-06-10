@@ -1,6 +1,9 @@
 'use strict';
 
-var {AccessSpecifier, Parent} = require('./classes');
+var classes = require('./classes');
+
+var AccessSpecifier = classes.AccessSpecifier,
+    Parent = classes.Parent;
 
 var baseObj = new AccessSpecifier();
 var classObj = new Parent();
