@@ -9,6 +9,14 @@
 
         var _protected = {}, _private = {}, className = this.constructor.name, self = this;
 
+        Object.defineProperty(this, 'isAbstract', {
+            value: className === 'AccessSpecifier'
+        });
+
+        Object.defineProperty(this, 'className', {
+            value: className
+        });
+
         Object.defineProperty(this, '$protected', {
             get: function () {
                 verifyCaller(this);
