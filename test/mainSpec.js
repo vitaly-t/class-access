@@ -1,6 +1,6 @@
 'use strict';
 
-var AccessSpecifier = require('../lib');
+var AccessSpecifier = require('../');
 
 describe('initial test', function () {
 
