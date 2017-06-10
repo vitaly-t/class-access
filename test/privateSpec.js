@@ -17,7 +17,9 @@ describe('private', function () {
         expect(c.$private(Child).bottom).toBe('bottom');
         c.setBottom(123);
         expect(c.$private(c).bottom).toBe(123);
+        expect(c.$private(c.constructor.name).bottom).toBe(123);
         expect(c.$private(Child).bottom).toBe(123);
+        expect(c.$private(Child.name).bottom).toBe(123);
     });
 
     it('must not override named members', () => {

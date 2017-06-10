@@ -55,6 +55,7 @@
 
         function verifyCaller(caller) {
             if (caller !== self) {
+                // This call should come only from inside the class chain;
                 throw new TypeError('Invalid caller outside of the class!');
             }
         }
