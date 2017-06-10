@@ -2,15 +2,15 @@
   "name": "class-access",
   "version": "0.0.1",
   "description": "Access specifiers for ES6 classes",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "jasmine-node test",
     "coverage": "istanbul cover ./node_modules/jasmine-node/bin/jasmine-node test",
     "travis": "npm run lint && istanbul cover ./node_modules/jasmine-node/bin/jasmine-node test --captureExceptions && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "lint": "./node_modules/.bin/eslint ./lib"
+    "lint": "./node_modules/.bin/eslint ./index.js"
   },
   "files": [
-    "lib"
+    "index.js"
   ],
   "homepage": "https://github.com/vitaly-t/class-access",
   "repository": {
