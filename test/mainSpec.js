@@ -29,48 +29,28 @@ describe('protocol', function () {
         expect(found).toEqual([]);
     });
 
-    it('must not allow override of any member', () => {
+    it('must not allow function-style calls', () => {
         expect(() => {
-            baseObj.isAbstract = null;
-        }).toThrow();
-
-        expect(() => {
-            baseObj.className = null;
-        }).toThrow();
-
-        expect(() => {
-            baseObj.sealClass = null;
-        }).toThrow();
-
-        expect(() => {
-            baseObj.$protected = null;
-        }).toThrow();
-
-        expect(() => {
-            baseObj.$private = null;
-        }).toThrow();
+            AccessSpecifier();
+        }).toThrow(new TypeError('Class constructors cannot be invoked without \'new\'!'));
     });
 
-    it('must not allow deletion of any member', () => {
-        expect(() => {
-            delete baseObj.isAbstract;
-        }).toThrow();
-
-        expect(() => {
-            delete baseObj.className;
-        }).toThrow();
-
-        expect(() => {
-            delete baseObj.sealClass;
-        }).toThrow();
-
-        expect(() => {
-            delete baseObj.$protected;
-        }).toThrow();
-
-        expect(() => {
-            delete baseObj.$private;
-        }).toThrow();
-
+    describe('members configuration', () => {
+        var members = ['isAbstract', 'className', 'sealClass', '$protected', '$private'];
+        it('not to allow overrides', () => {
+            members.forEach(m => {
+                expect(() => {
+                    baseObj[m] = null;
+                }).toThrow();
+            });
+        });
+        it('not to allow deletion', () => {
+            members.forEach(m => {
+                expect(() => {
+                    delete baseObj[m];
+                }).toThrow();
+            });
+        });
     });
+
 });
