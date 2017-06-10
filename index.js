@@ -41,21 +41,21 @@
         });
 
         Object.defineProperty(this, 'sealClass', {
-            value: function (cls) {
+            value: function (name) {
                 verifyCaller(this);
-                cls = cls && cls.name || cls;
-                if (!cls || typeof cls !== 'string') {
-                    throw new TypeError('Parameter ');
+                name = name && name.name || name;
+                if (!name || typeof name !== 'string') {
+                    throw new TypeError('Invalid \'name\' parameter!');
                 }
-                if (cls !== className) {
-                    throw new TypeError('Class \'' + cls + '\' is non-extendable!');
+                if (name !== className) {
+                    throw new TypeError('Class \'' + name + '\' is non-extendable!');
                 }
             }
         });
 
         function verifyCaller(caller) {
             if (caller !== self) {
-                throw new TypeError('Invalid access call!');
+                throw new TypeError('Invalid caller outside of the class!');
             }
         }
     }
