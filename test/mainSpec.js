@@ -1,13 +1,9 @@
 'use strict';
 
-var AccessSpecifier = require('../');
-
-class ClassA extends AccessSpecifier {
-
-}
+var {AccessSpecifier, Parent} = require('./classes');
 
 var baseObj = new AccessSpecifier();
-var classObj = new ClassA();
+var classObj = new Parent();
 
 describe('protocol', function () {
 
@@ -18,7 +14,7 @@ describe('protocol', function () {
 
     it('must correctly report the class name', () => {
         expect(baseObj.className).toBe('AccessSpecifier');
-        expect(classObj.className).toBe('ClassA');
+        expect(classObj.className).toBe('Parent');
     });
 
     it('must have no enumerable members in the base type', () => {
