@@ -1,7 +1,7 @@
 {
   "name": "class-access",
-  "version": "0.0.4",
-  "description": "Access specifiers for ES6 classes",
+  "version": "0.0.5",
+  "description": "Declarative access specifiers for ES6 classes",
   "main": "index.js",
   "scripts": {
     "test": "jasmine-node test",
@@ -24,7 +24,9 @@
   "keywords": [
     "class",
     "access",
-    "specifiers"
+    "specifiers",
+    "protected",
+    "private"
   ],
   "author": {
     "name": "Vitaly Tomilov",
